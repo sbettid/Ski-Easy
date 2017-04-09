@@ -4,4 +4,6 @@
     <string name="title_home">Top Slopes</string>
     <string name="title_dashboard">Areas</string>
     <string name="title_notifications">My Profile</string>
+    <string name="title_activity_areas">AreasActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
 </resources>

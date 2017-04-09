@@ -18,6 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AreasActivity"
+            android:label="@string/title_activity_areas" />
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/title_activity_profile"></activity>
     </application>
 
 </manifest>

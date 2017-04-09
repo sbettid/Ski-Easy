@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class HomePage extends AppCompatActivity {
+public class AreasActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
@@ -19,15 +19,15 @@ public class HomePage extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    //mTextMessage.setText(R.string.title_home);
+                    startActivity(new Intent(AreasActivity.this, HomePage.class));
                     return true;
                 case R.id.navigation_dashboard:
-                    //mTextMessage.setText(R.string.title_dashboard);
-                    startActivity(new Intent(HomePage.this, AreasActivity.class));
+                    mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
-                    startActivity(new Intent(HomePage.this, ProfileActivity.class));
                     //mTextMessage.setText(R.string.title_notifications);
+                    startActivity(new Intent(AreasActivity.this, ProfileActivity.class));
                     return true;
             }
             return false;
@@ -38,11 +38,11 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_areas);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setSelectedItemId(R.id.navigation_home);
+        navigation.setSelectedItemId(R.id.navigation_dashboard);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
