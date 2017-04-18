@@ -21,10 +21,12 @@ public class ProfileActivity extends AppCompatActivity {
                 case R.id.navigation_home:
                     //mTextMessage.setText(R.string.title_home);
                     startActivity(new Intent(ProfileActivity.this, HomePage.class));
+                    overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_left);
                     return true;
                 case R.id.navigation_dashboard:
                     //mTextMessage.setText(R.string.title_dashboard);
                     startActivity(new Intent(ProfileActivity.this, AreasActivity.class));
+                    overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_left);
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
