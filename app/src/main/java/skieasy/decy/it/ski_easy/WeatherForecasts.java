@@ -15,10 +15,19 @@ import java.net.URLConnection;
  * Created by Davide on 19/04/2017.
  */
 
-class WeatherForecasts extends AsyncTask{
-    @Override
-    protected Object doInBackground(Object[] params) {
+class WeatherForecasts extends AsyncTask<String,String,String>{
 
+
+    public AsyncResponse delegate = null;
+
+    public WeatherForecasts(AsyncResponse s){
+        delegate = s;
+    }
+
+
+
+    @Override
+    protected String doInBackground(String... params) {
         //Load weather forecasts from openwather.com using their API
         String apikey = "80634df8f9b5e5e561d6ac78eadba130";
         String urlAddress = "http://api.openweathermap.org/data/2.5/forecast/daily";
@@ -32,7 +41,7 @@ class WeatherForecasts extends AsyncTask{
 
             URLConnection myConn = myUrl.openConnection();
 
-            Log.d("WEATHER", "" + myConn.getURL());
+            //Log.d("WEATHER", "" + myConn.getURL());
             HttpURLConnection myHttp = null;
 
             if(myConn instanceof HttpURLConnection){
@@ -44,7 +53,7 @@ class WeatherForecasts extends AsyncTask{
             BufferedReader myIn = new BufferedReader(new InputStreamReader( myHttp.getInputStream()) ) ;
 
             while((response = myIn.readLine()) != null)
-            json+=response;
+                json+=response;
 
 
         } catch (MalformedURLException e) {
@@ -53,13 +62,14 @@ class WeatherForecasts extends AsyncTask{
             Log.d("WEATHER", "IOEXception");
         }
 
-
+        //Log.d("WEATHER", json);
         return json;
     }
 
     @Override
-    protected void onPostExecute(Object par){
-            
+    protected void onPostExecute(String result) {
+        delegate.processFinish(result);
     }
+
 
 }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -15,7 +16,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class AreaView extends AppCompatActivity {
+public class AreaView extends AppCompatActivity implements AsyncResponse {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +30,14 @@ public class AreaView extends AppCompatActivity {
         title.setText(areaName);
 
 
-       Object obj =  new WeatherForecasts().execute();
-
-       if(obj instanceof String)
-           Log.d("WEATHER", "String!");
+       Object obj =  new WeatherForecasts(this).execute();
 
 
+    }
 
-
-        //Log.d("WEATHER","json: " + json );
+    @Override
+    public void processFinish(String output) {
+       // Toast.makeText(getApplicationContext(), output , Toast.LENGTH_SHORT).show();
+        //PARSING
     }
 }
