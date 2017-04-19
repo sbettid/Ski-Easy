@@ -31,7 +31,7 @@ public class AreasActivity extends AppCompatActivity {
                     overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right);
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                    //mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
                     //mTextMessage.setText(R.string.title_notifications);

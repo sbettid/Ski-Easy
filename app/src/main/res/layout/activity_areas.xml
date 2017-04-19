@@ -24,7 +24,7 @@
         android:text="@string/areasTitle"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textColor="@android:color/holo_blue_light"
+        android:textColor="@android:color/holo_blue_dark"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
