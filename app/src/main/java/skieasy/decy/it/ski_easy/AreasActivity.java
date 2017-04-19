@@ -6,9 +6,12 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -47,7 +50,7 @@ public class AreasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_areas);
 
         ArrayList<String> listOfAreas = new ArrayList<String>();
-        ListView areas = (ListView) findViewById(R.id.areaView);
+        final ListView areas = (ListView) findViewById(R.id.areaView);
 
         listOfAreas.add("Cortina D'Ampezzo");
         listOfAreas.add("Plan De Corones");
@@ -68,7 +71,21 @@ public class AreasActivity extends AppCompatActivity {
 
 
 
+    areas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+            Object obj = areas.getItemAtPosition(position);
+            String area = (String) obj;
+
+            Intent intent = new Intent(AreasActivity.this, AreaView.class);
+            intent.putExtra("name", area);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_left);
+
+
+        }
+    });
 
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listOfAreas);
 
@@ -79,6 +96,7 @@ public class AreasActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.navigation_dashboard);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
     }
 
 }
