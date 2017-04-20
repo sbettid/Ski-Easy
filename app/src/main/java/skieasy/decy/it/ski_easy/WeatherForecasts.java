@@ -2,6 +2,7 @@ package skieasy.decy.it.ski_easy;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.LayoutInflater;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,17 +23,22 @@ class WeatherForecasts extends AsyncTask<String,String,String>{
 
     public WeatherForecasts(AsyncResponse s){
         delegate = s;
+
     }
 
 
 
     @Override
     protected String doInBackground(String... params) {
+
+
+
         //Load weather forecasts from openwather.com using their API
         String apikey = "80634df8f9b5e5e561d6ac78eadba130";
-        String urlAddress = "http://api.openweathermap.org/data/2.5/forecast/daily";
+        String urlAddress = "http://api.openweathermap.org/data/2.5/weather";
         String response = "";
-        String fullURL = urlAddress + "?APPID=" + apikey + "&q=bolzano";
+
+        String fullURL = urlAddress + "?APPID=" + apikey + "&q=" + params[0];
 
         String json = "";
 
@@ -62,7 +68,7 @@ class WeatherForecasts extends AsyncTask<String,String,String>{
             Log.d("WEATHER", "IOEXception");
         }
 
-        //Log.d("WEATHER", json);
+
         return json;
     }
 
