@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,12 +22,13 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.DecimalFormat;
 import java.util.Iterator;
 
 public class AreaView extends AppCompatActivity implements AsyncResponse {
 
     ImageView weatherImg;
-
+    TextView temperature;
 
 
     @Override
@@ -36,7 +39,7 @@ public class AreaView extends AppCompatActivity implements AsyncResponse {
         //Get area
         TextView title = (TextView) findViewById(R.id.areaTitle);
         Intent current = getIntent();
-        String areaName;
+        final String areaName;
         areaName = current.getStringExtra("name");
         title.setText(areaName);
 
@@ -45,6 +48,20 @@ public class AreaView extends AppCompatActivity implements AsyncResponse {
 
 
         weatherImg = (ImageView) findViewById(R.id.imageView);
+        temperature = (TextView) findViewById(R.id.textView6);
+
+        Button slopesList = (Button) findViewById(R.id.buttonSlopesList);
+        slopesList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(AreaView.this, SlopesListView.class);
+                intent.putExtra("name", areaName);
+                startActivity(intent);
+
+            }
+        });
+
 
     }
 
@@ -90,6 +107,14 @@ public class AreaView extends AppCompatActivity implements AsyncResponse {
             }
             //Log.d("WEATHER", "JSON:" + z.toJSONString());
 
+
+            JSONObject main = (JSONObject) jsonObj.get("main");
+
+            double temp = (double) main.get("temp");
+
+            temp = temp - 273.15;
+            DecimalFormat formatter = new DecimalFormat("##.##");
+            temperature.setText(formatter.format(temp) + " °C");
         }catch(Exception ex){
             Log.d("WEATHER", "EXCEPTION");
         }
