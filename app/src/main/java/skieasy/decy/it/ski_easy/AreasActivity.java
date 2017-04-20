@@ -19,35 +19,37 @@ public class AreasActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    //mTextMessage.setText(R.string.title_home);
-                    startActivity(new Intent(AreasActivity.this, HomePage.class));
-                    overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right);
-                    return true;
-                case R.id.navigation_dashboard:
-                    //mTextMessage.setText(R.string.title_dashboard);
-                    return true;
-                case R.id.navigation_notifications:
-                    //mTextMessage.setText(R.string.title_notifications);
-                    startActivity(new Intent(AreasActivity.this, ProfileActivity.class));
-                    overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right);
-                    return true;
-            }
-            return false;
-        }
-
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_areas);
+
+         BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+                = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        //mTextMessage.setText(R.string.title_home);
+                        startActivity(new Intent(AreasActivity.this, HomePage.class));
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                        return true;
+                    case R.id.navigation_dashboard:
+                        //mTextMessage.setText(R.string.title_dashboard);
+                        return true;
+                    case R.id.navigation_notifications:
+                        //mTextMessage.setText(R.string.title_notifications);
+                        startActivity(new Intent(AreasActivity.this, ProfileActivity.class));
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                        return true;
+                }
+                return false;
+            }
+
+        };
 
         ArrayList<String> listOfAreas = new ArrayList<String>();
         final ListView areas = (ListView) findViewById(R.id.areaView);
@@ -81,7 +83,7 @@ public class AreasActivity extends AppCompatActivity {
             Intent intent = new Intent(AreasActivity.this, AreaView.class);
             intent.putExtra("name", area);
             startActivity(intent);
-            overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_left);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
 
         }
