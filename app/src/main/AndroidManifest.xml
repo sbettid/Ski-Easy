@@ -27,7 +27,8 @@
             android:name=".ProfileActivity"
             android:label="@string/app_name" />
         <activity android:name=".AreaView" />
-        <activity android:name=".SlopesListView"></activity>
+        <activity android:name=".SlopesListView" />
+        <activity android:name=".SlopeView"></activity>
     </application>
 
 </manifest>

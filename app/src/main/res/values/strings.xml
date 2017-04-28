@@ -7,8 +7,8 @@
 
     <string name="areasTitle">SELECT YOUR AREA</string>
     <string name="topSlopes">Top Slopes</string>
-    <string name="slopesOpened">53/53 slopes opened</string>
+    <string name="slopesOpened">20/20 slopes opened</string>
     <string name="SlopesList">Slopes List</string>
-    <string name="slopesListTitle" > Slopes in </string>
+    <string name="slopesListTitle"> Slopes in </string>
     <string name="defaultTemp">0.00 °C</string>
 </resources>

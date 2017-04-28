@@ -3,9 +3,13 @@ package skieasy.decy.it.ski_easy;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class SlopesListView extends AppCompatActivity {
 
@@ -20,5 +24,40 @@ public class SlopesListView extends AppCompatActivity {
 
         TextView area = (TextView) findViewById(R.id.textView5);
         area.setText(areaName);
+
+
+        ArrayList<String> slopesList = new ArrayList<String>();
+
+
+        slopesList.add("Falzarego - Lagazuoi");
+        slopesList.add("Col Gallina");
+        slopesList.add("5 Torri");
+        slopesList.add("Fedare - Forcella Nuvolau");
+        slopesList.add("Olimpa");
+        slopesList.add("Alpe Potor - Nuvolau");
+        slopesList.add("Fedare - Croda Negra");
+        slopesList.add("Baby Socrepes");
+        slopesList.add("Gilardon/Roncato");
+        slopesList.add("Roncato - Socrepes");
+        slopesList.add("Roncato Festis");
+        slopesList.add("Rumerlo/Duca D'Aosta");
+        slopesList.add("Colfiere/Col Drusciè");
+        slopesList.add("Cortina - Col Drusciè");
+        slopesList.add("Col Druscièì/ Ra Valles");
+        slopesList.add("Ra Valles/ Cima Tofana");
+        slopesList.add("Pian Ra Valles");
+        slopesList.add("Cacciatori");
+        slopesList.add("Funivia Faloria");
+        slopesList.add("San Marco");
+        slopesList.add("Ansiei");
+
+
+        ListView slopesListView = (ListView) findViewById(R.id.list);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, slopesList);
+
+        slopesListView.setAdapter(adapter);
+
+
     }
 }
