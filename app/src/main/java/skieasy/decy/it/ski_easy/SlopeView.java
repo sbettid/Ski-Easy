@@ -50,6 +50,14 @@ public class SlopeView extends AppCompatActivity {
 
         //Array Adapter
 
+        String[][]  values = {{"cremo", "Wonderful slope!!", "5"},
+                {"davide", "Perfect staff!!!", "1"}};
+
+        //Array Adapter
+
+        myAdapter ad = new myAdapter(getApplicationContext(), values);
+
+        reviews.setAdapter(ad);
 
     }
 }
