@@ -36,8 +36,10 @@ public class myAdapter  extends ArrayAdapter <String[]>  {
 
         RatingBar bar = (RatingBar) rowView.findViewById(R.id.ratingBar);
         float rating = Float.parseFloat(ratings[position][2]);
+        bar.setStepSize(1);
         bar.setRating(rating);
-
+        bar.setClickable(false);
+        bar.setIsIndicator(true);
         TextView review = (TextView) rowView.findViewById(R.id.textView9);
         review.setText(ratings[position][1]);
 
