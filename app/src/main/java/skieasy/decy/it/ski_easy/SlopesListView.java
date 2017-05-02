@@ -3,6 +3,8 @@ package skieasy.decy.it.ski_easy;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -52,12 +54,20 @@ public class SlopesListView extends AppCompatActivity {
         slopesList.add("Ansiei");
 
 
-        ListView slopesListView = (ListView) findViewById(R.id.list);
+        final ListView slopesListView = (ListView) findViewById(R.id.list);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, slopesList);
 
         slopesListView.setAdapter(adapter);
 
-
+        slopesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(SlopesListView.this, SlopeView.class);
+                String slope = (String) slopesListView.getItemAtPosition(position);
+                intent.putExtra("name", slope);
+                startActivity(intent);
+            }
+        });
     }
 }
