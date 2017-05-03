@@ -12,4 +12,10 @@
     <string name="slopesListTitle"> Slopes in </string>
     <string name="defaultTemp">0.00 °C</string>
     <string name="reviewTitle">What do other skiers think?</string>
+    <string name="now">right now</string>
+    <string name="first_slope">Oberholz</string>
+    <string name="second_slope">Pian Ra Valles</string>
+    <string name="third_slope">Funivia Falora</string>
+    <string name="fourth_slope">Gran Risa</string>
+    <string name="fifth_slope">Torre di Pisa</string>
 </resources>
