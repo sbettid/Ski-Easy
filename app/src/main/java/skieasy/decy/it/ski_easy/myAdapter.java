@@ -10,16 +10,18 @@ import android.widget.ArrayAdapter;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by Davide on 02/05/2017.
  */
 
 public class myAdapter  extends ArrayAdapter <String[]>  {
 
-    private final String[][] ratings;
+    private final ArrayList<String[]> ratings;
     private final Context context;
 
-    public myAdapter(@NonNull Context context, @NonNull String[][] objects) {
+    public myAdapter(@NonNull Context context, @NonNull ArrayList<String[]> objects) {
         super(context, R.layout.review_line, objects);
         this.ratings = objects;
         this.context = context;
@@ -32,16 +34,16 @@ public class myAdapter  extends ArrayAdapter <String[]>  {
         View rowView = inflater.inflate(R.layout.review_line, parent, false);
 
         TextView user = (TextView) rowView.findViewById(R.id.textView10);
-        user.setText(ratings[position][0]);
+        user.setText(ratings.get(position)[0]);
 
         RatingBar bar = (RatingBar) rowView.findViewById(R.id.ratingBar);
-        float rating = Float.parseFloat(ratings[position][2]);
+        float rating = Float.parseFloat(ratings.get(position)[2]);
         bar.setStepSize(1);
         bar.setRating(rating);
         bar.setClickable(false);
         bar.setIsIndicator(true);
         TextView review = (TextView) rowView.findViewById(R.id.textView9);
-        review.setText(ratings[position][1]);
+        review.setText(ratings.get(position)[1]);
 
         return rowView;
     }

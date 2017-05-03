@@ -18,4 +18,5 @@
     <string name="third_slope">Funivia Falora</string>
     <string name="fourth_slope">Gran Risa</string>
     <string name="fifth_slope">Torre di Pisa</string>
+    <string name="addReviewHint">Enter your comment here...</string>
 </resources>
