@@ -23,6 +23,8 @@ public class SlopeView extends AppCompatActivity {
      ArrayList<String[]>  values;
     ListView reviews;
 
+    public static String tit;
+
     public SlopeView() {
         values = new ArrayList<String[]>();
         values.add(new String[] {"cremo", "Wonderful slope!", "5"});
@@ -39,7 +41,7 @@ public class SlopeView extends AppCompatActivity {
         TextView title = (TextView) findViewById(R.id.textView7);
 
         Intent intent = getIntent();
-        String tit = intent.getStringExtra("name");
+        tit = intent.getStringExtra("name");
         title.setText(tit);
 
         final ImageButton addReview = (ImageButton) findViewById(R.id.imageButton);
@@ -119,5 +121,25 @@ public class SlopeView extends AppCompatActivity {
                 builder.show();
             }
         });
+
+    info.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(SlopeView.this);
+            builder.setTitle("Info on the slope");
+            final LayoutInflater inflater = getLayoutInflater();
+            final View myView = inflater.inflate(R.layout.info_layout, null);
+            builder.setView(myView);
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            builder.show();
+        }
+    });
+
     }
 }

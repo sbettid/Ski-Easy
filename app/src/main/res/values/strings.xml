@@ -19,4 +19,11 @@
     <string name="fourth_slope">Gran Risa</string>
     <string name="fifth_slope">Torre di Pisa</string>
     <string name="addReviewHint">Enter your comment here...</string>
+    <string name="level_difficulty" >Level of difficulty: high </string>
+    <string name="altitude">Top Elevation: 1446 m.s.l.m</string>
+    <string name="slopeLength">Length: 3.7 Km</string>
+    <string name="slopeTraffic">Traffic right now: 48 people</string>
+    <string name="maxGradientq">Slope maximum gradient: 62%</string>
+    <string name="baseElev">Base elevation: 1120 m.s.l.m</string>
+    <string name="vertical">Vertical: 326 m</string>
 </resources>
