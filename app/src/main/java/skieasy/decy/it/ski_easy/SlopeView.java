@@ -42,6 +42,9 @@ public class SlopeView extends AppCompatActivity {
         String tit = intent.getStringExtra("name");
         title.setText(tit);
 
+        final ImageButton addReview = (ImageButton) findViewById(R.id.imageButton);
+        final ImageButton info = (ImageButton) findViewById(R.id.imageButton2);
+
         //zoom_map = (ImageView) findViewById(R.id.expanded_image);
         ImageButton map = (ImageButton) findViewById(R.id.imageButton5);
 
@@ -51,6 +54,9 @@ public class SlopeView extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(), "aaaaaa" , Toast.LENGTH_SHORT).show();
                 //zoom_map = (ImageButton) findViewById(R.id.expanded_image);
                 zoom_map.setVisibility(View.VISIBLE);
+                addReview.setVisibility(View.INVISIBLE);
+                info.setVisibility(View.INVISIBLE);
+
             }
         });
 
@@ -58,6 +64,8 @@ public class SlopeView extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 zoom_map.setVisibility(View.INVISIBLE);
+                addReview.setVisibility(View.VISIBLE);
+                info.setVisibility(View.VISIBLE);
             }
         });
 
@@ -77,7 +85,7 @@ public class SlopeView extends AppCompatActivity {
 
 
 
-        ImageButton addReview = (ImageButton) findViewById(R.id.imageButton);
+
         addReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
