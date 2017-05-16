@@ -26,4 +26,11 @@
     <string name="maxGradientq">Slope maximum gradient: 62%</string>
     <string name="baseElev">Base elevation: 1120 m.s.l.m</string>
     <string name="vertical">Vertical: 326 m</string>
+    <string name="profile_name">Skier_92</string>
+    <string name="profile_statistic">Your personal statistics</string>
+    <string name="length">Covered Distance: 67,8 km</string>
+    <string name="preferred_slope">Favourite Slope: Gran Risa</string>
+    <string name="speed">Max Speed: 32 km/h</string>
+    <string name="last_slope">Last Slope: 5 Torri</string>
+    <string name="average">Average Speed: 23 km/h</string>
 </resources>

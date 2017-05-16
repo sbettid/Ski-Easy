@@ -110,7 +110,7 @@ public class SlopeView extends AppCompatActivity {
                         String text = edit.getText().toString();
                         RatingBar bar = (RatingBar) myView.findViewById(R.id.ratingBar2);
                         Float numStars = bar.getRating();
-                        values.add(new String[] {"davide",text, String.valueOf(numStars)});
+                        values.add(new String[] {"Skier_92",text, String.valueOf(numStars)});
 
                         myAdapter ad = new myAdapter(getApplicationContext(), values);
 
